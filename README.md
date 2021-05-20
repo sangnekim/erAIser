@@ -1,2 +1,4 @@
 # tobigs-image-conference
-ToBigs 12th Conference Image Team
+Video object segmentation branch  
+
+base line code: [Siammask](https://github.com/foolwood/SiamMask)
