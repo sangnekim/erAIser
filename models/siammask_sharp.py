@@ -3,6 +3,10 @@
 # Licensed under The MIT License
 # Written by Qiang Wang (wangqiang2015 at ia.ac.cn)
 # --------------------------------------------------------
+"""
+상위 디렉토리의 path도 사용해야 다른 디렉토리에서 모듈 import 가능해서
+다음 코드 3줄 사용
+"""
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
