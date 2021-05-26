@@ -197,7 +197,8 @@ def select_mask_logistic_loss(p_m, mask, weight, o_sz=63, g_sz=127):
 
 def iou_measure(pred, label):
     pred = pred.ge(0)
-    mask_sum = pred.eq(1).add(label.eq(1))
+    # mask_sum = pred.eq(1).add(label.eq(1)) -> 이 경우 intxn 계산 안되서 iou = 0으로 나옴
+    mask_sum = pred.eq(1).float() + label.eq(1).float()  # 이렇게 해야지 iou 계산 가능
     intxn = torch.sum(mask_sum == 2, dim=1).float()
     union = torch.sum(mask_sum > 0, dim=1).float()
     iou = intxn/union

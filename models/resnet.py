@@ -4,7 +4,7 @@ from torch.autograd import Variable
 import math
 import torch.utils.model_zoo as model_zoo
 #from models.features import Features  #원래 코드
-from features import Features  # model 폴더에서 같이 있으므로 from문 변경
+from .features import Features  # model 폴더에서 같이 있으므로 from문 변경
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152']

@@ -29,6 +29,8 @@ from utils.config_helper import load_config
 해당 모율 사용하려면 C++ 파일 사용해야함
 demo나 train시에 사용되지 않고 우리 task인 VOS랑은 무관해서 주석처리함
 해당 모듈 사용할 경우: fine-tuning시 VOT 성능 평가용으로 사용
+VOT dataset을 사용하면 임포트한 함수들(vot_overlap, vot_float2str)이 작동되어야 하므로
+그때는 주석 풀고 C++ 파일도 사용해야함
 """
 # from utils.pyvotkit.region import vot_overlap, vot_float2str
 
