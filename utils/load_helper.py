@@ -50,6 +50,10 @@ def load_pretrain(model, pretrained_path):
             new_dict[k] = v
         pretrained_dict = new_dict
         check_keys(model, pretrained_dict)
+    """
+    strict=False -> key값이 matching 되지 않는 부분은 load하지 않는다.
+    따라서 base모델 학습 후 -> refine모델에서 load해서 사용할 수 있음!
+    """
     model.load_state_dict(pretrained_dict, strict=False)
     return model
 
