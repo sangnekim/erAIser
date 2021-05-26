@@ -25,6 +25,12 @@ from utils.anchors import Anchors
 from utils.tracker_config import TrackerConfig
 
 from utils.config_helper import load_config
+"""
+해당 모율 사용하려면 C++ 파일 사용해야함
+demo나 train시에 사용되지 않고 우리 task인 VOS랑은 무관해서 주석처리함
+해당 모듈 사용할 경우: fine-tuning시 VOT 성능 평가용으로 사용
+"""
+# from utils.pyvotkit.region import vot_overlap, vot_float2str
 
 thrs = np.arange(0.3, 0.5, 0.05)
 
@@ -555,9 +561,8 @@ def main():
 
     # setup model
     if args.arch == 'Custom':
-        from custom import Custom
+        from models.custom import Custom
         model = Custom(anchors=cfg['anchors'])
-
     else:
         parser.error('invalid architecture: {}'.format(args.arch))
 
