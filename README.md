@@ -6,14 +6,15 @@ base line code: [Siammask](https://github.com/foolwood/SiamMask)
 ## Contents
 1. [Environment Setup](#environment-setup)
 2. [Demo](#demo)
-3. [Testing Models](#testing-models)
-4. [Training Models](#training-models)
+3. [Testing Models](#testing)
+4. [Training Models](#training)
 
 ## Environment setup
 This code has been tested on Ubuntu 18.04.5, Python 3.7, Pytorch 1.8.1, CUDA 10.2
 
 - Clone the repository
-pull 할거니까 이 부분 필요 없음
+
+pull 할거니까 필요 없음
 아래 shell 명령어들의 directory는 Siammask로 가정
 - Setup python environment
 ```shell
@@ -62,14 +63,15 @@ CUDA_VISIBLE_DEVICES=0 python -u test.py --config config_davis.json --resume Sia
 ```
 
 <br>
-Note:
+Note : 
+
 - 기존의 siammask에 있는 많은 평가들은 vot에 해당하는게 많아서 여기서는 제외
 - GPU 환경에서 돌릴 것!
 
 ## Training
 
 ### Training Data
-- data directory의 각각 dataset 폴더에 들어가 [readme](data/coco/readme.md)에 나온대로 하면 데이터 설정 끝!
+- data directory의 각각 폴더에 들어가 [readme](data/coco/readme.md)에 나온대로 하면 데이터 설정 끝!
 - 우리가 사용하는 데이터셋은 Youtube-VOS & COCO
 
 ### Download the pre-trained model (174 MB)
