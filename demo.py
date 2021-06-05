@@ -33,9 +33,11 @@ if __name__ == '__main__':
 
     # Parse Image file
     img_files = sorted(glob.glob(join(args.base_path, '*.jp*')))
-    ims = [cv2.imread(imf) for imf in img_files]
+    # VI쪽으로 넘겨주기 위해 이미지 사이즈 변환 (w,h) = (512,512)
+    ims = [cv2.resize(cv2.imread(imf), (512,512)) for imf in img_files]
 
     # Select ROI
+    # GUI 문제 (X server)
     """
     cv2.namedWindow("SiamMask", cv2.WND_PROP_FULLSCREEN)
     # cv2.setWindowProperty("SiamMask", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
@@ -45,10 +47,16 @@ if __name__ == '__main__':
     except:
         exit()
     """
+
+    # bounding box coordinates입력
     x, y, w, h = 300, 110, 165, 250
 
     toc = 0
     for f, im in enumerate(ims):
+        # VI 쪽으로 이미지 넘겨주기 위해 저장하는 코드
+        im_name = 'images/' + str(f).zfill(5) + '.jpg'
+        cv2.imwrite(im_name, im)
+
         tic = cv2.getTickCount()
         if f == 0:  # init
             target_pos = np.array([x + w / 2, y + h / 2])
@@ -60,6 +68,11 @@ if __name__ == '__main__':
             location = state['ploygon'].flatten()
             mask = state['mask'] > state['p'].seg_thr
 
+            # VI쪽으로 마스크 넘겨주기 위해 저장하는 코드
+            mask = np.array(mask*255, dtype='uint8')  # 이미지로 저장하기 위해 형변환
+            mask_name = 'masks/'+str(f).zfill(5) + '.jpg'
+            cv2.imwrite(mask_name, mask)
+
             im[:, :, 2] = (mask > 0) * 255 + (mask == 0) * im[:, :, 2]
             cv2.polylines(im, [np.int0(location).reshape((-1, 1, 2))], True, (0, 255, 0), 3)
             name = 'output/' + str(f).zfill(5) + '.jpg'
@@ -69,6 +82,11 @@ if __name__ == '__main__':
             state = siamese_track(state, im, mask_enable=True, refine_enable=True, device=device)  # track
             location = state['ploygon'].flatten()
             mask = state['mask'] > state['p'].seg_thr
+
+            # VI쪽으로 마스크 넘겨주기 위해 저장하는 코드
+            mask = np.array(mask*255, dtype='uint8')  # 이미지로 저장하기 위해 형변환
+            mask_name = 'masks/'+str(f).zfill(5) + '.jpg'
+            cv2.imwrite(mask_name, mask)
 
             im[:, :, 2] = (mask > 0) * 255 + (mask == 0) * im[:, :, 2]
             cv2.polylines(im, [np.int0(location).reshape((-1, 1, 2))], True, (0, 255, 0), 3)
