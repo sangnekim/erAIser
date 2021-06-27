@@ -118,11 +118,14 @@ def main(exemplar_size=127, context_amount=0.5, search_size=511, enable_mask=Tru
         anno_file = './annotations/SOBA_train.json'
         soba = SOBA(anno_file)
         n_imgs = len(soba.imgs)
+        """
+        출력해보기
         print("n_imgs:", n_imgs)
         print(soba.loadImgs(soba.imgs[1]['image_id'])[0])
+        """
         with futures.ProcessPoolExecutor(max_workers=num_threads) as executor:
             fs = [executor.submit(crop_img, soba.loadImgs(id)[0],
-                                  soba.loadAnns(soba.getAnnIds(imgIds=id, iscrowd=None)),
+                                  soba.loadAssoAnns(soba.getAssoAnnIds(imgIds=id, iscrowd=None)),
                                   set_crop_base_path, set_img_base_path,
                                   exemplar_size, context_amount, search_size,
                                   enable_mask) for id in soba.imgs]
