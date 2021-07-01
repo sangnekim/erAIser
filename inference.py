@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     # Setup Model
     cfg = load_config(args)
-    from vos.models.custom import Custom
+    from vos.vos_models.custom import Custom
     siammask = Custom(anchors=cfg['anchors'])
     if args.resume:
         assert isfile(args.resume), 'Please download {} first.'.format(args.resume)

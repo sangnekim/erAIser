@@ -135,10 +135,10 @@ def main():
     train_loader, val_loader = build_data_loader(cfg)
 
     if args.arch == 'Custom':
-        from models.custom import Custom
+        from vos_models.custom import Custom
         model = Custom(anchors=cfg['anchors'])
     else:
-        # model = models.__dict__[args.arch](anchors=cfg['anchors'])  # Custom해서 사용할 거니깐 주석 처리
+        # model = vos_models.__dict__[args.arch](anchors=cfg['anchors'])  # Custom해서 사용할 거니깐 주석 처리
         pass
 
     logger.info(model)

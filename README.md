@@ -30,6 +30,17 @@ pip install -r requirements.txt
 bash install.sh
 ```
 
+- Setup python path
+
+```bash
+export PYTHONPATH=$PWD:$PYTHONPATH
+cd vos/
+export PYTHONPATH=$PWD:$PYTHONPATH
+cd ../vi/
+export PYTHONPATH=$PWD:$PYTHONPATH
+cd ../
+```
+
 ## Demo
 
 - Setup your environment
