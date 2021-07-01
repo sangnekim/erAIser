@@ -21,7 +21,7 @@ If you don't use gnu c++14 compiler, then you will encounter CUDA build error
 - Setup python environment
 
 ```bash
-git clone git clone https://github.com/shkim960520/tobigs-image-conference.git
+git clone https://github.com/shkim960520/tobigs-image-conference.git
 cd tobigs-image-conference
 conda create -n erAIser python=3.7 -y
 conda activate erAIser
