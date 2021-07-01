@@ -4,6 +4,8 @@ import torch
 import numpy as np
 import cv2  
 
+from torch.utils import data
+from torch.autograd import Variable
 from .model import generate_model
 import time
 
