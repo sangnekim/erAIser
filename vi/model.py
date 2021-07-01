@@ -1,16 +1,38 @@
 import torch
 from torch import nn
-from models import vinet
+from .models import vinet
 
 
 def generate_model(opt):
+    if type(opt) == dict:
+        class Object():
+            pass
+        opt_ = Object()
+        opt_.crop_size = opt['crop_size']
+        opt_.double_size = opt['double_size']
 
-    try: 
-        assert(opt.model == 'vinet_final')
-        model = vinet.VINet_final(opt=opt)
-    except:
-        print('Model name should be: vinet_final')
+        opt_.search_range = opt['search_range'] # fixed as 4: search range for flow subnetworks
+        opt_.pretrain_path = opt['pretrain_path']
+        opt_.result_path = opt['result_path']
 
+        opt_.model = opt['model']
+        opt_.batch_norm = opt['batch_norm']
+        opt_.no_cuda = opt['no_cuda'] # use GPU
+        opt_.no_train = opt['no_train']
+        opt_.test = opt['test']
+        opt_.t_stride = opt['t_stride']
+        opt_.loss_on_raw = opt['loss_on_raw']
+        opt_.prev_warp = opt['prev_warp']
+        opt_.save_image = opt['save_image']
+        opt_.save_video = opt['save_video']
+        opt = opt_
+
+    #try: 
+    #    assert(opt.model == 'vinet_final')
+    #    model = vinet.VINet_final(opt=opt)
+    #except:
+    #    print('Model name should be: vinet_final')
+    model = vinet.VINet_final(opt = opt)
     assert(opt.no_cuda is False)
     model = model.cuda()
     model = nn.DataParallel(model)

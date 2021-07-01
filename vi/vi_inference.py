@@ -4,35 +4,11 @@ import torch
 import numpy as np
 import cv2  
 
-from torch.utils import data
-from torch.autograd import Variable
-from davis import DAVIS
-from model import generate_model
+from .model import generate_model
 import time
 
 import subprocess as sp
 import pickle
-
-class Object():
-    pass
-opt = Object()
-opt.crop_size = 512
-opt.double_size = True if opt.crop_size == 512 else False
-
-opt.search_range = 4 # fixed as 4: search range for flow subnetworks
-opt.pretrain_path = 'results/vinet_agg_rec/save_agg_rec_512.pth'
-opt.result_path = 'results/vinet_agg_rec'
-
-opt.model = 'vinet_final'
-opt.batch_norm = False
-opt.no_cuda = False # use GPU
-opt.no_train = True
-opt.test = True
-opt.t_stride = 3
-opt.loss_on_raw = False
-opt.prev_warp = True
-opt.save_image = True
-opt.save_video = True
 
 
 def createVideoClip(clip, folder, name, size=[512,512]):
@@ -71,6 +47,16 @@ class VIInference:
     def inference(self, img, mask): 
         # shape of the img expected to be (3, 512, 512)
         # shape of the mask expected to be (1, 512, 512)
+
+        """
+        Change input for siammask -> VINet
+        """
+        img = torch.tensor(img, dtype = torch.float32)
+        img /= 255.
+        mask = torch.tensor(mask, dtype = torch.float32)
+        img = img.permute(2,0,1)
+        mask = mask.unsqueeze(0)
+        
 
         img = 2. * img - 1
         inverse_mask = 1 - mask
@@ -136,6 +122,29 @@ class VIInference:
         createVideoClip(final_clip, video_path, '%s.mp4'%video_name)
 
 if __name__=='__main__':
+    from .davis import DAVIS
+
+    class Object():
+        pass
+    opt = Object()
+    opt.crop_size = 512
+    opt.double_size = True if opt.crop_size == 512 else False
+
+    opt.search_range = 4 # fixed as 4: search range for flow subnetworks
+    opt.pretrain_path = 'results/vinet_agg_rec/save_agg_rec_512.pth'
+    opt.result_path = 'results/vinet_agg_rec'
+
+    opt.model = 'vinet_final'
+    opt.batch_norm = False
+    opt.no_cuda = False # use GPU
+    opt.no_train = True
+    opt.test = True
+    opt.t_stride = 3
+    opt.loss_on_raw = False
+    opt.prev_warp = True
+    opt.save_image = True
+    opt.save_video = True
+
     model, _ = generate_model(opt)
     model.eval()
     folder_name = 'davis_%d'%(int(opt.crop_size))
@@ -149,5 +158,7 @@ if __name__=='__main__':
     for i in range(80):
         img = inputs[0, :, i]
         mask = masks[0, :, i]
+
+        
         inf.inference(img, mask)
     inf.to_video("tmptmp", "./DAVIS_demo")
