@@ -5,8 +5,9 @@
 
 ## Caution
 
-- If you want 'video object segmentation(siammask)' model only, you should go `vos` directory
-- If you want 'videon inpainting(VINet)' model only, you should go `vi` directory
+- This `root` directory is for 'integrated demo(siammask + VINet)'.
+- If you want to know about 'video object segmentation(siammask)' model only, you should go `vos` directory
+- If you want to know about 'videon inpainting(VINet)' model only, you should go `vi` directory
 
 ## Contents
 
