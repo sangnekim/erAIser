@@ -24,5 +24,5 @@ setup(
         ], extra_compile_args={'cxx': cxx_args, 'nvcc': nvcc_args})
     ],
     cmdclass={
-        'build_ext': BuildExtension
+        'build_ext': BuildExtension.with_options(use_ninja=False)
     })
