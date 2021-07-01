@@ -72,7 +72,8 @@ wget http://www.robots.ox.ac.uk/~qwang/SiamMask_DAVIS.pth
 - Run `inference.py`
 
 ```bash
-python3 inference.py
+mkdir results
+python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json
 ```
 
 - You can see the result under results folder
