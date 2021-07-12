@@ -1,0 +1,10 @@
+<p>hello</p>
+
+<form action="{% url 'result' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>이름</p>
+    <input name="title" type="text">
+    <p>파일</p>
+    <input name="videofile" type="file" accept = "video/*">
+    <input type="submit" value="Submit">
+</form>
