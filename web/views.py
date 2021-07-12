@@ -41,7 +41,7 @@ def result(request):
 
         # WebDemo
         videos = {'ims':frame_list, 'coordinates':(300, 110, 165, 250)}  # 나중에 coordinates 변수로 바꾸기 (x, y, w, h)
-        config_path = '../config_inference.json'  # json file for model implement
+        config_path = './config_web.json'  # json file for model implement
         config = json.load(open(config_path))
         inf_time, speed = WebDemo(videos=videos, cfg=config)
 
