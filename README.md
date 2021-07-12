@@ -38,6 +38,8 @@ cd vos/
 export PYTHONPATH=$PWD:$PYTHONPATH
 cd ../vi/
 export PYTHONPATH=$PWD:$PYTHONPATH
+cd ../web/
+export PYTHONPATH=$PWD:$PYTHONPATH
 cd ../
 ```
 
