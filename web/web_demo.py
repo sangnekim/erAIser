@@ -20,9 +20,9 @@ def WebDemo(videos: dict, cfg: json):
     # Setup Model
     from vos.vos_models.custom import Custom
     siammask = Custom(anchors=cfg['anchors'])
-    if cfg.resume:
-        assert isfile(cfg.resume), 'Please download {} first.'.format(cfg.resume)
-        siammask = load_pretrain(siammask, cfg.resume)
+    if cfg["resume"]:
+        assert isfile(cfg['resume']), 'Please download {} first.'.format(cfg['resume'])
+        siammask = load_pretrain(siammask, cfg['resume'])
     
     siammask.eval().to(device)
     vinet, _ = generate_model(cfg['opt'])
@@ -45,7 +45,7 @@ def WebDemo(videos: dict, cfg: json):
         
         # tracking
         state = siamese_track(state, im, mask_enable=True, refine_enable=True, device=device)
-        location = state['polygon'].flatten()
+        location = state['ploygon'].flatten()
         mask = state['mask'] > state['p'].seg_thr
 
         inf.inference(im, mask)
@@ -54,16 +54,17 @@ def WebDemo(videos: dict, cfg: json):
     
     toc /= cv2.getTickFrequency()  # inference time
     fps = f / toc  # speed
-    inf.to_video("test", cfg.save_path)  # save video in media directory to show on web browser
+    inf.to_video("test_web", cfg['save_path'])  # save video in media directory to show on web browser
     
     return toc, fps  # retrun inference time & speed
 
 
 if __name__=="__main__":
-    config_path = '../config_inference.json'
+    config_path = './config_web.json'
     config = json.load(open(config_path))
     videos = {}
     img_files = sorted(glob.glob(join(config['base_path'], '*.jp*')))  # base_path: base video directory path
     videos['ims'] = [cv2.imread(imf) for imf in img_files]
+    videos['coordinates'] = (300, 110, 165, 250)
     inf_time, speed = WebDemo(videos=videos, cfg=config)
     print('Inference Time: {:02.1f}s Speed: {:3.1f}fps (with visulization!)'.format(inf_time, speed))
