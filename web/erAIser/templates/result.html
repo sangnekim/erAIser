@@ -1,7 +1,7 @@
 <div>
 <br><br>
 <p>입력 받은 동영상 video class instance로 만들어서 출력하는 부분</p>
-<video width = '512' height = '512' controls autoplay>
+<video width = '512' height = '512' controls autoplay muted loop>
     <source src="{{vids.videofile.url}}" type = 'video/mp4; codecs="avc1.4d002a"'>
 <p>{{vids.title}}</p>
 </video>
@@ -9,11 +9,11 @@
 <br>
 
 
-<p>입력 받은 동영상 -> frames -> 출력 동영상(moviepy사용)</p>
-<video src='{{ vid_path }}' width="512" height="512" controls autoplay>
+<p>모델 적용 이후</p>
+<video src='{{ vid_path }}' width="512" height="512" controls autoplay muted loop>
     해당 브라우저는 video 태그를 지원하지 않습니다.
 </video>
-<p>{{frame_length}}</p>
+
 
 
 <a href="{% url 'home' %}">home으로</a>

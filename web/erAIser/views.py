@@ -35,6 +35,11 @@ def result(request):
                 break
         
         frame_list = frame_list[:-1]
+        videos = {'ims':frame_list, 'coordinates':(168, 109, 144, 283)}
+        config_path = 'erAIser/config_web.json'
+        config = json.load(open(config_path))
+        inpainted, _, _ = WebDemo(videos=videos, cfg=config)
+
         for i, im in enumerate(frame_list):
             cv2.imwrite('media/src_img/{}.png'.format(i), im)  # src_img 폴더 만들어두고 작업해야 write 가능
         
@@ -46,14 +51,6 @@ def result(request):
         if vidobj.isOpened():
             vidobj.release()
 
-
-        '''
-        # WebDemo
-        videos = {'ims':frame_list, 'coordinates':(300, 110, 165, 250)}  # 나중에 coordinates 변수로 바꾸기 (x, y, w, h)
-        config_path = './config_web.json'  # json file for model implement
-        config = json.load(open(config_path))
-        inf_time, speed = WebDemo(videos=videos, cfg=config)
-        '''
 
         context = {
             'vids': vids,

@@ -35,7 +35,6 @@
         "save_video" : true
     },
     "resume": "../SiamMask_DAVIS.pth",
-    "base_path": "../vos/data/tennis",
-    "save_path": "../results"
+    "save_path": "media/rst"
 
 }

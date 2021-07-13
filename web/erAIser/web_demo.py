@@ -54,15 +54,17 @@ def WebDemo(videos: dict, cfg: json):
     
     toc /= cv2.getTickFrequency()  # inference time
     fps = f / toc  # speed
-    inf.to_video("test_web", cfg['save_path'])  # save video in media directory to show on web browser
+    inpainted = inf.inpainted_imgs
+    inpainted = [cv2.cvtColor(inpainted_one, cv2.COLOR_BGR2RGB) for inpainted_one in inpainted]
     
-    return toc, fps  # retrun inference time & speed
+    return inpainted, toc, fps  # retrun inference time & speed
 
 
 if __name__=="__main__":
     config_path = './config_web.json'
     config = json.load(open(config_path))
     videos = {}
+    config['base_path'] = '../vos/data/tennis'
     img_files = sorted(glob.glob(join(config['base_path'], '*.jp*')))  # base_path: base video directory path
     videos['ims'] = [cv2.imread(imf) for imf in img_files]
     videos['coordinates'] = (300, 110, 165, 250)
