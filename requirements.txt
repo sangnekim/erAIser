@@ -8,6 +8,8 @@ scipy
 cmake
 ninja
 moviepy
+pyqt5
+pyqt5-tools
 Cython==0.29.4
 colorama==0.3.9
 requests==2.21.0
