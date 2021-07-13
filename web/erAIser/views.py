@@ -9,6 +9,7 @@ from os.path import exists
 import cv2
 import PIL
 import numpy as np
+from moviepy.editor import *
 
 # Create your views here.
 def home(request):
@@ -23,8 +24,6 @@ def result(request):
         vids = Video(title = title, videofile = video)
         vids.save()
 
-        print(vids.videofile.url)
-
         vidobj = cv2.VideoCapture(vids.videofile.path)
         frame_list = []
 
@@ -36,12 +35,17 @@ def result(request):
                 break
         
         frame_list = frame_list[:-1]
+        for i, im in enumerate(frame_list):
+            cv2.imwrite('media/src_img/{}.png'.format(i), im)  # src_img 폴더 만들어두고 작업해야 write 가능
+        
+        ims_list = ['media/src_img/{}.png'.format(i) for i in range(len(frame_list))]
+        clip = ImageSequenceClip(ims_list, fps=50)
+        clip.write_videofile("media/rst/video.mp4", fps=50)
+        vid_path = "/media/rst/video.mp4"
 
         if vidobj.isOpened():
             vidobj.release()
 
-        # 동영상 save
-        vidswriter = cv2.VideoWriter_fourcc('X','2','6','4')
 
         '''
         # WebDemo
@@ -53,7 +57,8 @@ def result(request):
 
         context = {
             'vids': vids,
-            'frame_length': len(frame_list)
+            'frame_length': len(frame_list),
+            'vid_path': vid_path
         }
 
         return render(request, 'result.html', context)

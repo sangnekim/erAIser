@@ -1,15 +1,18 @@
 <div>
 <br><br>
-<video width = '512' height = '512' controls>
+<p>입력 받은 동영상 video class instance로 만들어서 출력하는 부분</p>
+<video width = '512' height = '512' controls autoplay>
     <source src="{{vids.videofile.url}}" type = 'video/mp4; codecs="avc1.4d002a"'>
 <p>{{vids.title}}</p>
 </video>
 
 <br>
-<video src='http://www.tomodevel.jp/material/video/disneyTour.mp4' width='400' controls autoplay>
+
+
+<p>입력 받은 동영상 -> frames -> 출력 동영상(moviepy사용)</p>
+<video src='{{ vid_path }}' width="512" height="512" controls autoplay>
     해당 브라우저는 video 태그를 지원하지 않습니다.
 </video>
-
 <p>{{frame_length}}</p>
 
 
