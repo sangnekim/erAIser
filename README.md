@@ -78,7 +78,7 @@ cd ../
 
 ### Demo
 
-1. Setup your environment
+1. Setup your [environment](#Environment-setup)
 2. Download the Deep Video Inpainting model
 
 ```bash
