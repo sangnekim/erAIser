@@ -4,7 +4,7 @@
 ## Contents
 1. [erAIser](#erAIser)
 2. [Example](#Example)
-3. [Demo screenshot](#Demo screenshot)
+3. [Demo screenshot](Demo-screenshot)
 4. [Usage](#Usage)
     - Environment setup
     - Run demo
