@@ -165,7 +165,6 @@ class AAInference:
             try:
                 video=copy.deepcopy(self.vi_result)
                 for f in range(len(video)):
-                    print("origin: ", len(self.origin_video_pos_512))
                     w,h=target_sizes[f] # 새로 만든 animation의 크기
                     px, py=target_poses[f] # 새로 
                     cx, cy=self.origin_video_pos_512[f] # 합성은 512에 한다.
