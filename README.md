@@ -13,7 +13,15 @@
 
 ## erAIser 
 <br>
-<p>프로젝트 소개</p>
+‘erAIser’ is a service that provides a specific object erased video by using video object segmentation and video inpainting methods.
+<br>
+
+Most of video inpainting model need segmentation mask of objects. But it is hard to get in normal way. For your convenience, we used a deep learning model that allows users to easily obtain segmentation masks. Also, we combined this video object segmentation model with the video inpainting models to increase usability.
+
+Our team consists of nine members of ‘Tobigs’ who are interested in computer vision task.
+
+Let’s make your own video of a specific object being erased with ‘erAIser’!
+
 <br>
 
 ## Example
