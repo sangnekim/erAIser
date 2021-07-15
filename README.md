@@ -3,13 +3,13 @@
 
 ## Contents
 1. [erAIser](#erAIser)
-2. Example
-3. DEMO screenshot
-4. Usage
+2. [Example](#Example)
+3. [Demo screenshot](#Demo screenshot)
+4. [Usage](#Usage)
     - Environment setup
     - Run demo
-5. Reference
-6. Contributor
+5. [References](#References)
+6. [Contributors](#Contributors)
 
 ## erAIser 
 <br>
@@ -39,7 +39,7 @@ This code was tested in the following environments
  - Python 3.7
  - Pytorch 1.8.1
  - CUDA 9.0
- - GCC 5.5 (c++14)
+ - GCC 5.5 (gnu c++14 compiler)
 
 If you don't use gnu c++14 compiler, then you will encounter CUDA build error  
 
