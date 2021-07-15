@@ -40,12 +40,12 @@ def result(request):
         config = json.load(open(config_path))
         inpainted, _, _ = WebDemo(videos=videos, cfg=config)
 
-        for i, im in enumerate(frame_list):
+        for i, im in enumerate(inpainted):
             cv2.imwrite('media/src_img/{}.png'.format(i), im)  # src_img 폴더 만들어두고 작업해야 write 가능
         
-        ims_list = ['media/src_img/{}.png'.format(i) for i in range(len(frame_list))]
+        ims_list = ['media/src_img/{}.png'.format(i) for i in range(len(inpainted))]
         clip = ImageSequenceClip(ims_list, fps=50)
-        clip.write_videofile("media/rst/video.mp4", fps=50)
+        clip.write_videofile("media/rst/video.mp4", fps=50)  # 결과 비디오 저장하는 코드
         vid_path = "/media/rst/video.mp4"
 
         if vidobj.isOpened():

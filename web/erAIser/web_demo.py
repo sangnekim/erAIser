@@ -57,7 +57,7 @@ def WebDemo(videos: dict, cfg: json):
     inpainted = inf.inpainted_imgs
     inpainted = [cv2.cvtColor(inpainted_one, cv2.COLOR_BGR2RGB) for inpainted_one in inpainted]
     
-    return inpainted, toc, fps  # retrun inference time & speed
+    return inpainted, toc, fps  # retrun inference inpainted image list & time & speed
 
 
 if __name__=="__main__":
