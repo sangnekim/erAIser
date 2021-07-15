@@ -33,19 +33,26 @@ def result(request):
 
             if not ret:
                 break
-        
+
         frame_list = frame_list[:-1]
-        videos = {'ims':frame_list, 'coordinates':(168, 109, 144, 283)}
-        config_path = 'erAIser/config_web.json'
+        videos = {'ims':frame_list, 'coordinates_origin':(300, 105, 180, 255)}
+
+        config_path = 'erAIser/config_web_aa.json'
         config = json.load(open(config_path))
-        inpainted, _, _ = WebDemo(videos=videos, cfg=config)
+        config['using_aanet'] = True
+        
+        source_img = dict()
+        # source_img['image']=imageio.imread(config['source_image_path'])
+        source_img['image']=imageio.imread('media/source_img/source_image_iu.png')
+        source_img['coordinates'] = (200, 200, 240, 750)
+        inpainted, _, _ = WebDemo(videos=videos, cfg=config, source=source_img)
 
         for i, im in enumerate(inpainted):
             cv2.imwrite('media/src_img/{}.png'.format(i), im)  # src_img 폴더 만들어두고 작업해야 write 가능
         
         ims_list = ['media/src_img/{}.png'.format(i) for i in range(len(inpainted))]
         clip = ImageSequenceClip(ims_list, fps=50)
-        clip.write_videofile("media/rst/video.mp4", fps=50)  # 결과 비디오 저장하는 코드
+        clip.write_videofile("media/rst/video.mp4", fps=50)  # 결과 비디오 저장하는 코드 
         vid_path = "/media/rst/video.mp4"
 
         if vidobj.isOpened():
