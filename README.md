@@ -2,7 +2,7 @@
 <p>ppt 첫 슬라이드 이미지 넣기</p>
 
 ## Contents
-1. erAIser
+1. [erAIser](#erAIser)
 2. Example
 3. DEMO screenshot
 4. Usage
@@ -11,9 +11,9 @@
 5. Reference
 6. Contributor
 
-## erAIser (# 프로젝트 소개)
+## erAIser 
 <br>
-<br>
+<p>프로젝트 소개</p>
 <br>
 
 ## Example
