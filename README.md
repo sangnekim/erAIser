@@ -1,24 +1,57 @@
-# erAIser
-## tobigs-image-conference
-
-
-## Caution
-
-- This `root` directory is for 'integrated demo(siammask + VINet)'.
-- If you want to know about 'video object segmentation(siammask)' model only, you should go `vos` directory
-- If you want to know about 'videon inpainting(VINet)' model only, you should go `vi` directory
+# erAIser - Remove an object in video using AI
+<p>ppt 첫 슬라이드 이미지 넣기</p>
 
 ## Contents
+1. [erAIser](#erAIser)
+2. [Example](#Example)
+3. [Demo screenshot](Demo-screenshot)
+4. [Usage](#Usage)
+    - Environment setup
+    - Run demo
+5. [References](#References)
+6. [Contributors](#Contributors)
 
-1. Environment Setup
-2. Demo
+## erAIser 
+<br>
+‘erAIser’ is a service that provides a specific object erased video by using video object segmentation and video inpainting methods.
+<br>
 
-## Environment Setup
-This code has been tested on Ubuntu 18.04.5, Python 3.7, Pytorch 1.8.1 CUDA 9.0, c++14  
+Most of video inpainting model need segmentation mask of objects. But it is hard to get in normal way. For your convenience, we used a deep learning model that allows users to easily obtain segmentation masks. Also, we combined this video object segmentation model with the video inpainting models to increase usability.
+
+Our team consists of nine members of ‘Tobigs’ who are interested in computer vision task.
+
+Let’s make your own video of a specific object being erased with ‘erAIser’!
+
+<br>
+
+## Example
+<br>
+<p>원본 이미지 & 인페인팅 된 동영상 시연</p>
+<br>
+
+## Demo screenshot
+<br>
+웹 페이지 스크린샷
+<br>
+
+## Usage
+### Caution
+
+- This `root` directory is for 'integrated demo(Siammask + VINet)'.
+- If you want to use 'video object segmentation(Siammask)' model only, you should go `vos` directory and follow `readme.md`
+- If you want to use 'video inpainting(VINet)' model only, you should go `vi` directory and follow `readme.md`
+
+### Environment Setup
+This code was tested in the following environments
+ - Ubuntu 18.04.5
+ - Python 3.7
+ - Pytorch 1.8.1
+ - CUDA 9.0
+ - GCC 5.5 (gnu c++14 compiler)
+
 If you don't use gnu c++14 compiler, then you will encounter CUDA build error  
 
-- Clone the repository
-- Setup python environment
+1. Clone the repository & Setup
 
 ```bash
 git clone https://github.com/shkim960520/tobigs-image-conference.git
@@ -30,7 +63,7 @@ pip install -r requirements.txt
 bash install.sh
 ```
 
-- Setup python path
+2. Setup python path
 
 ```bash
 export PYTHONPATH=$PWD:$PYTHONPATH
@@ -38,13 +71,17 @@ cd vos/
 export PYTHONPATH=$PWD:$PYTHONPATH
 cd ../vi/
 export PYTHONPATH=$PWD:$PYTHONPATH
+cd ../web/
+export PYTHONPATH=$PWD:$PYTHONPATH
+cd ../AANet/
+export PYTHONPATH=$PWD:$PYTHONPATH
 cd ../
 ```
 
-## Demo
+### Demo
 
-- Setup your environment
-- Download the Deep Video Inpainting model
+1. Setup your [environment](#Environment-setup)
+2. Download the Deep Video Inpainting model
 
 ```bash
 cd vi/results/vinet_agg_rec
@@ -63,17 +100,26 @@ curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code
 
 cd ../../../
 ```
-- Download the Siammask model
+3. Download the Siammask model
 
 ```bash
 wget http://www.robots.ox.ac.uk/~qwang/SiamMask_DAVIS.pth
 ```
 
-- Run `inference.py`
-
+4. Make `results` directory for saving result video
 ```bash
 mkdir results
+```
+`results` is defualt setting. You can change this.
+
+5. Run `inference.py`
+```bash
 python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json
 ```
+The result video will be saved in `results`.
 
-- You can see the result under results folder
+## References
+<p>Siammask 논문 등등</p>
+
+## Contributors
+<p>웹에 들어가는 members 그대로 사용하기</p>

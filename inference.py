@@ -6,10 +6,16 @@ import os.path
 import numpy as np
 import cv2
 import pickle
+import imageio
+from skimage import img_as_ubyte
 
 from vi.model import generate_model
 from vi.vi_inference import VIInference
 
+from vos.vos_models.custom import Custom
+
+from AANet.aa_inference import AAInference
+from inference_with_aanet import aanet_main
 
 parser = argparse.ArgumentParser(description='PyTorch Tracking Demo')
 
@@ -20,6 +26,14 @@ parser.add_argument('--config', dest='config', default='config_inference.json',
 parser.add_argument('--base_path', default='./vos/data/tennis', help='datasets')
 parser.add_argument('--save_path', default='./results', help='save path for modified video')
 parser.add_argument('--cpu', action='store_true', help='cpu mode')
+
+# AANet args
+parser.add_argument('--using_aanet', help='if wanna use animation generating')
+parser.add_argument('--aanet_source_image_path', default='./AANet/sample/test.png' ,help='source image for aanet' )
+parser.add_argument('--aanet_config_path', default='./AANet/config/davis_taichi384.yaml', help='aanet_model.yaml')
+parser.add_argument('--aanet_model_path', default='./AANet/checkpoints/davis_taichi384_avd.pth', help='aanet_model.pth')
+parser.add_argument('--aanet_ani_mode', default='relative', help='ani_mode : relative or avd')
+
 args = parser.parse_args()
 
 
@@ -30,7 +44,6 @@ if __name__ == '__main__':
 
     # Setup Model
     cfg = load_config(args)
-    from vos.vos_models.custom import Custom
     siammask = Custom(anchors=cfg['anchors'])
     if args.resume:
         assert isfile(args.resume), 'Please download {} first.'.format(args.resume)
@@ -40,8 +53,10 @@ if __name__ == '__main__':
     vinet, _ = generate_model(cfg['opt'])
     vinet.eval()
     inf = VIInference(vinet)
-
-
+   
+    if args.using_aanet:
+        AAInf=AAInference(args.aanet_config_path, args.aanet_model_path)
+        
     # Parse Image file
     img_files = sorted(glob.glob(join(args.base_path, '*.jp*')))
     # VI쪽으로 넘겨주기 위해 이미지 사이즈 변환 (w,h) = (512,512)
@@ -50,12 +65,17 @@ if __name__ == '__main__':
     cv2.namedWindow("SiamMask", cv2.WND_PROP_FULLSCREEN)
     # cv2.setWindowProperty("SiamMask", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
     try:
-       init_rect = cv2.selectROI('SiamMask', ims[0], False, False)
-       x, y, w, h = init_rect
+        init_rect = cv2.selectROI('SiamMask', ims[0], False, False)
+        x, y, w, h = init_rect
     except:
-       exit()
-
-    # x, y, w, h = 300, 110, 165, 250
+        exit()
+    
+    # x, y, w, h = 170, 110, 130, 290
+    
+    if args.using_aanet:
+        AAInf.source_image=imageio.imread(args.aanet_source_image_path)
+        AAInf.origin_video_512=[(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)/255) for img in ims]
+    
     toc = 0
 
     for f, im in enumerate(ims):        
@@ -74,16 +94,29 @@ if __name__ == '__main__':
         location = state['ploygon'].flatten()
         mask = state['mask'] > state['p'].seg_thr
 
-        inf.inference(im, mask)
+        if args.using_aanet:
+            AAInf.origin_video_pos_512.append(state['target_pos'].astype(int))
+            AAInf.origin_video_mask_512.append(mask.astype(int))
             
+        inf.inference(im, mask)
+        
         toc += cv2.getTickCount() - tic
 
     
-
     toc /= cv2.getTickFrequency()
     fps = f / toc
     print('SiamMask Time: {:02.1f}s Speed: {:3.1f}fps (with visulization!)'.format(toc, fps))
     inf.to_video("test", args.save_path)
     
-
-
+    
+    # AANet
+    # input : inpainting video, args (단, bbox들은 우선 임의로 기재해놓았음, WebDemo.py에서는 
+    
+    if args.using_aanet:
+        # 위에서 vinet이 생성한 inpainted video 가져오기.
+        vi_result=[f/255 for f in imageio.mimread(os.path.join(args.save_path,'test.mp4'))]
+        
+        video=aanet_main(AAInf, vi_result, args)
+                         
+        imageio.mimsave(os.path.join(args.save_path, 'test_aanet.mp4'), [img_as_ubyte(frame) for frame in video])
+        print(f'saved to : {args.save_path}/test_aanet.mp4')
