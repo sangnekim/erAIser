@@ -112,9 +112,14 @@ mkdir results
 ```
 `results` is defualt setting. You can change this.
 
-5. Run `inference.py`
+5-1. Run `inference.py` for erasing
 ```bash
-python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json
+python3 inference.py --resume checkpoint_e19.pth --config config_inference.json
+```
+
+5-2. Run `inference.py` for change people
+```bash
+python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json --using_aanet True
 ```
 The result video will be saved in `results`.
 
