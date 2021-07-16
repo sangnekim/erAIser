@@ -119,10 +119,12 @@ mkdir checkpoints
 cd checkpoints/
 
 file_id="1DT6_SZHTkmuEWvCfs07F2mGLSkgxYplo"
-file_name="4dataset384_avd_08.pth"
+file_name="4dataset384.pth"
 curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${file_id}" > /dev/null
 code="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
 curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code}&id=${file_id}" -o ${file_name}
+
+cd ../../
 ```
 
 5. Make `results` directory for saving result video
