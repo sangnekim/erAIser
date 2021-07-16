@@ -1,5 +1,6 @@
 from pathlib import WindowsPath
 from django.shortcuts import render
+from numpy.core.fromnumeric import resize
 from .models import ImageTarget, Video, Image
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
@@ -16,6 +17,7 @@ import PIL
 import numpy as np
 import time
 from moviepy.editor import *
+from AANet.preprocessing_aanet import resize_bbox
 
 # Create your views here.
 @method_decorator(csrf_exempt, name="dispatch")
@@ -135,6 +137,8 @@ def result(request):
             source = {}
             source['image'] = imageio.imread('media/image/{}'.format(imagetitle))
             source['coordinates'] = (img_x, img_y, img_w, img_h)
+            source['coordinates'] = resize_bbox(source['coordinates'], (512,512),
+                                                source['image'].shape[:2][::-1])
             inpainted, _, _ = WebDemo(videos=videos, cfg=config, source=source)
 
             for i, im in enumerate(inpainted):

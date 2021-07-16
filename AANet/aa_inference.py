@@ -178,7 +178,12 @@ class AAInference:
         ani_size=int(np.array(target_sizes)[:, 1].mean())
         ob_size=int(np.array(origin_video_sz_512)[:, 1].mean())
 
-        new_size=int(384*(ob_size/ani_size))
+        if ani_size>ob_size:
+            new_size=int(384*(ob_size/ani_size))
+        else : 
+            new_size=380
+            ob_size=380
+            ani_size=384
 
         new_target_sizes=[]
         for sz in target_sizes:

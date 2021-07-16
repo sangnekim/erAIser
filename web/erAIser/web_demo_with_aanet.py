@@ -143,11 +143,15 @@ def aanet_main(AAInf, vi_result, origin_video, cfg):
     toc+=toc_sub
     ### track driving video(animation video) ### 
 
+    AAInf.source_animation, AAInf.source_image_384_bbox=AAInf.resize_animation(AAInf.source_animation, AAInf.origin_video, AAInf.source_image_384_bbox)
+
     siammask = assign_siammask(cfg, device)
 
     bbox=AAInf.source_image_384_bbox
 
     target_sizes, target_poses, toc= track_mask(AAInf.source_animation, bbox, AAInf, siammask,cfg, device, method='driving video', toc=toc)
+    
+    target_sizes, AAInf.source_animation=AAInf.resize_target_size(target_sizes, AAInf.origin_video_sz_512, AAInf.source_animation) #*
     
     ### decouple object from background ###
     masks=AAInf.decouple_background(AAInf.source_animation)

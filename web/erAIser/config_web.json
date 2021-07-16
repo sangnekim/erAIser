@@ -40,7 +40,7 @@
     "using_aanet":false,
     "source_image_path":"../AANet/sample/source_image_iu.png",
     "aanet_config_path":"../AANet/config/davis_taichi384.yaml",
-    "aanet_model_path":"../AANet/checkpoints/davis_taichi384_avd.pth",
+    "aanet_model_path":"../AANet/checkpoints/davis_taichi384.pth",
     "aanet_ani_mode":"relative"
     
 
