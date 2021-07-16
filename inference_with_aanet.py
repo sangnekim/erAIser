@@ -83,6 +83,9 @@ def aanet_main(AAInf, vi_result, args):
     ims = [cv2.imread(imf) for imf in img_files]
     AAInf.origin_video=[(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)/255) for img in ims]
     
+    # bounding box for original bounding box
+    AAInf.origin_video_bbox=resize_bbox(AAInf.origin_video_bbox_512, 
+                                            (512,512), (AAInf.origin_video[0]).shape[:2][::-1])
     
     ### track origin video ### 
     
@@ -90,7 +93,7 @@ def aanet_main(AAInf, vi_result, args):
     siammask=assign_siammask(args, cfg, device)
     
     # bbox of object of origin video
-    bbox=[300, 105, 180, 255] # 원본 비디오에 대한 bbox1 (bbox2 : 512버전 - 함수로 충당.) bbox3 : source image.
+    bbox=AAInf.origin_video_bbox # 원본 비디오에 대한 bbox1
     
     # track origin video 
     track_mask(ims, bbox, AAInf, siammask, cfg, device, method='origin video')
@@ -104,15 +107,7 @@ def aanet_main(AAInf, vi_result, args):
     siammask = assign_siammask(args, cfg, device)
 
     
-    # take bbox of source image
-    #     cv2.namedWindow("SiamMask", cv2.WND_PROP_FULLSCREEN)
-    #     # cv2.setWindowProperty("SiamMask", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-    #     try:
-    #         init_rect = cv2.selectROI('SiamMask', ims[0], False, False)
-    #         bbox = init_rect
-    #     except:
-    #         exit()
-    bbox=[160, 70, 280,680] # source image에 대한 bbox 3
+    bbox=AAInf.source_image_bbox # or [160, 70, 280, 680] for 'AANet/sample/test.png' 
 
     AAInf.source_image_bbox=bbox ### 
 
