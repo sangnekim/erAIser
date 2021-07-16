@@ -38,7 +38,9 @@ Let’s make your own video of a specific object being erased with ‘erAIser’
 
 ## Demo screenshot
 <br>
-웹 페이지 스크린샷
+<p align="center"><img width="980" alt="front" src="https://user-images.githubusercontent.com/68596881/126006048-1625a188-5e9c-478d-9787-ff8d09c3039a.png">
+</p>
+
 <br>
 
 ## Usage
@@ -155,4 +157,5 @@ The result video will be saved in `results`.
 - Wang, Tianyu, et al. "Instance shadow detection." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2020.
 
 ## Contributors
-<p>웹에 들어가는 members 그대로 사용하기</p>
+<p align="center"><img width="980" alt="members" src="https://user-images.githubusercontent.com/68596881/126005946-f87fcf3a-5cb6-4e00-b4cd-6795ca349c62.png">
+</p>
