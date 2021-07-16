@@ -27,7 +27,13 @@ Let’s make your own video of a specific object being erased with ‘erAIser’
 
 ## Example
 <br>
-![kwon2](https://user-images.githubusercontent.com/68596881/126003086-60641341-2845-4a26-94ac-de0132a46cd4.gif)
+
+<table>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/68596881/126003086-60641341-2845-4a26-94ac-de0132a46cd4.gif" width = 400 height = 300/></td><td><img src="https://user-images.githubusercontent.com/68596881/126003512-ca14ddd5-a54c-4299-801e-3de3378fd8d3.gif" width = 400 height = 300/></td>
+  <tr>
+</table>
+
 <br>
 
 ## Demo screenshot
