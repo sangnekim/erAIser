@@ -146,7 +146,7 @@ class AAInference:
         
         return predictions
     
-    def decouple_background(self, source_animation, method='naive_filtering', filter_ratio=0.8):
+    def decouple_background(self, source_animation, method='naive_filtering', filter_ratio=0.88):
         
         masks=[] 
         if method=='naive_filtering':
