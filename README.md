@@ -1,6 +1,5 @@
 # erAIser - Remove an object in video using AI
-<p align="center"><img width="539" alt="첫슬라이드" src="https://user-images.githubusercontent.com/40483474/125912276-4d5b8952-7973-4884-80ff-93f475fb3bb8.PNG">
-</p>
+<p>ppt 첫 슬라이드 이미지 넣기</p>
 
 ## Contents
 1. [erAIser](#erAIser)
@@ -74,8 +73,6 @@ cd ../vi/
 export PYTHONPATH=$PWD:$PYTHONPATH
 cd ../web/
 export PYTHONPATH=$PWD:$PYTHONPATH
-cd ../AANet/
-export PYTHONPATH=$PWD:$PYTHONPATH
 cd ../
 ```
 
@@ -105,48 +102,22 @@ cd ../../../
 
 ```bash
 wget http://www.robots.ox.ac.uk/~qwang/SiamMask_DAVIS.pth
-
-file_id="1IKZWpMeWXq-9osBqG7e7bTABumIZ32gB"
-file_name="checkpoint_e19.pth"
-curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${file_id}" > /dev/null
-code="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
-curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code}&id=${file_id}" -o ${file_name}
-```
-4. Download the AANet model
-```bash
-cd AANet/
-mkdir checkpoints
-cd checkpoints/
-
-file_id="1DT6_SZHTkmuEWvCfs07F2mGLSkgxYplo"
-file_name="4dataset384.pth"
-curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${file_id}" > /dev/null
-code="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
-curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code}&id=${file_id}" -o ${file_name}
-
-cd ../../
 ```
 
-5. Make `results` directory for saving result video
+4. Make `results` directory for saving result video
 ```bash
 mkdir results
 ```
 `results` is defualt setting. You can change this.
 
-6-1. Run `inference.py` for erasing
+5. Run `inference.py`
 ```bash
-python3 inference.py --resume checkpoint_e19.pth --config config_inference.json
-```
-
-6-2. Run `inference.py` for change people
-```bash
-python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json --using_aanet True
+python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json
 ```
 The result video will be saved in `results`.
 
 ## References
-- Wang, Qiang, et al. "Fast online object tracking and segmentation: A unifying approach." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2019.
-- Wang, Tianyu, et al. "Instance shadow detection." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2020.
+<p>Siammask 논문 등등</p>
 
 ## Contributors
 <p>웹에 들어가는 members 그대로 사용하기</p>

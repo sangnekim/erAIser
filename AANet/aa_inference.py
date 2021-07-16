@@ -1,8 +1,8 @@
 import warnings
 warnings.filterwarnings("ignore")
 import os
-from demo import make_animation
-from demo import load_checkpoints
+from .demo import make_animation
+from .demo import load_checkpoints
 from skimage import img_as_ubyte
 import numpy as np
 import matplotlib.pyplot as plt
@@ -146,7 +146,7 @@ class AAInference:
         
         return predictions
     
-    def decouple_background(self, source_animation, method='naive_filtering', filter_ratio=0.88):
+    def decouple_background(self, source_animation, method='naive_filtering', filter_ratio=0.8):
         
         masks=[] 
         if method=='naive_filtering':
@@ -163,6 +163,7 @@ class AAInference:
         # 물체가 동영상 외부로 나갈 위험성이 있을 시.
         for pad in range(30): # 30 : try to 30. 
             try:
+                print("Now Pad", pad)
                 video=copy.deepcopy(self.vi_result)
                 for f in range(len(video)):
                     w,h=target_sizes[f] # 새로 만든 animation의 크기

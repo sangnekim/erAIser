@@ -17,12 +17,12 @@ import numpy as np
 from skimage.transform import resize
 from skimage import img_as_ubyte
 import torch
-from sync_batchnorm import DataParallelWithCallback
+from .sync_batchnorm import DataParallelWithCallback
 
-from modules.generator import Generator
-from modules.region_predictor import RegionPredictor
-from modules.avd_network import AVDNetwork
-from animate import get_animation_region_params
+from .modules.generator import Generator
+from .modules.region_predictor import RegionPredictor
+from .modules.avd_network import AVDNetwork
+from .animate import get_animation_region_params
 import matplotlib
 
 matplotlib.use('Agg')

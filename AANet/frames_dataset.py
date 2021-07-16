@@ -18,7 +18,7 @@ from imageio import mimread
 import numpy as np
 from torch.utils.data import Dataset
 import pandas as pd
-from augmentation import AllAugmentationTransform
+from .augmentation import AllAugmentationTransform
 import glob
 from functools import partial
 

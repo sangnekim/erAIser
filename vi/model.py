@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from models import vinet
+from .models import vinet
 
 
 def generate_model(opt):

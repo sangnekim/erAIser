@@ -172,7 +172,7 @@ class VINet_final(nn.Module):
             self.flownet_256 = LongFlowNetCorr(self.opt, 32+2)
             self.masknet_256 = MaskEstimator_(self.opt, 32)
             # from lib.resample2d_package.modules.resample2d import Resample2d
-            from lib.resample2d_package.resample2d import Resample2d
+            from ..lib.resample2d_package.resample2d import Resample2d
             self.warping_256 = Resample2d().cuda()
 
         self.masknet = MaskEstimator_(self.opt, 128)

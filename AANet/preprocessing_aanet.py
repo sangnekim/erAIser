@@ -120,6 +120,8 @@ def crop_image_by_bbox(image, annotation, bbox, width, height,
     new_annotation=annotation[new_ymin:new_ymax, new_xmin:new_xmax]
     
     if train_size < crop_size:
+        new_image = new_image.astype('float32')
+        new_annotation = new_annotation.astype('float32')
         new_image=cv2.resize(new_image, (train_size, train_size))
         new_annotation=cv2.resize(new_annotation, (train_size, train_size))
     if return_mask==True: # 

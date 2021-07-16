@@ -13,13 +13,13 @@ from tqdm import tqdm
 import torch
 from torch.utils.data import DataLoader
 
-from frames_dataset import PairedDataset
-from logger import Logger, Visualizer
+from .frames_dataset import PairedDataset
+from .logger import Logger, Visualizer
 import imageio
 from scipy.spatial import ConvexHull
 import numpy as np
 
-from sync_batchnorm import DataParallelWithCallback
+from .sync_batchnorm import DataParallelWithCallback
 
 
 def get_animation_region_params(source_region_params, driving_region_params, driving_region_params_initial,

@@ -17,14 +17,6 @@ from vos.vos_models.custom import Custom
 from AANet.aa_inference import AAInference
 from inference_with_aanet import aanet_main
 
-def str2bool(v):
-    if isinstance(v, bool):
-        return v
-    if v.lower() in ('yes', 'true', 't', 'y', '1'):
-        return True
-    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
-        return False
-
 parser = argparse.ArgumentParser(description='PyTorch Tracking Demo')
 
 parser.add_argument('--resume', default='', type=str, required=True,
@@ -36,11 +28,10 @@ parser.add_argument('--save_path', default='./results', help='save path for modi
 parser.add_argument('--cpu', action='store_true', help='cpu mode')
 
 # AANet args
-parser.add_argument('--using_aanet', default=False, help='if wanna use animation generating', type=str2bool)
-parser.add_argument('--resume_aanet', default='SiamMask_DAVIS.pth', help='siammask parameters for aanet')
+parser.add_argument('--using_aanet', help='if wanna use animation generating')
 parser.add_argument('--aanet_source_image_path', default='./AANet/sample/test.png' ,help='source image for aanet' )
-parser.add_argument('--aanet_config_path', default='./AANet/config/davis_taichi384.yaml', help='aanet_model.yaml')
-parser.add_argument('--aanet_model_path', default='./AANet/checkpoints/davis_taichi384_avd.pth', help='aanet_model.pth')
+parser.add_argument('--aanet_config_path', default='./AANet/config/davis384_human_plus_taichi.yaml', help='aanet_model.yaml')
+parser.add_argument('--aanet_model_path', default='./AANet/checkpoints/davis384_human_plus_taichi_avd.pth', help='aanet_model.pth')
 parser.add_argument('--aanet_ani_mode', default='relative', help='ani_mode : relative or avd')
 
 args = parser.parse_args()

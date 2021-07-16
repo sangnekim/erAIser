@@ -4,17 +4,7 @@
 # Written by Qiang Wang (wangqiang2015 at ia.ac.cn)
 # ---------------------------------------------------------
 import glob
-from test import *
-
-parser = argparse.ArgumentParser(description='PyTorch Tracking Demo')
-
-parser.add_argument('--resume', default='', type=str, required=True,
-                    metavar='PATH',help='path to latest checkpoint (default: none)')
-parser.add_argument('--config', dest='config', default='config_davis.json',
-                    help='hyper-parameter of SiamMask in json format')
-parser.add_argument('--base_path', default='./data/tennis', help='datasets')
-parser.add_argument('--cpu', action='store_true', help='cpu mode')
-args = parser.parse_args()
+from vos.test import *
 
 if __name__ == '__main__':
     # Setup device
@@ -38,7 +28,7 @@ if __name__ == '__main__':
 
     # Select ROI
     # GUI 문제 (X server)
-
+    """
     cv2.namedWindow("SiamMask", cv2.WND_PROP_FULLSCREEN)
     # cv2.setWindowProperty("SiamMask", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
     try:
@@ -46,9 +36,10 @@ if __name__ == '__main__':
         x, y, w, h = init_rect
     except:
         exit()
+    """
 
     # bounding box coordinates입력
-    # x, y, w, h = 300, 110, 165, 250
+    x, y, w, h = 300, 110, 165, 250
 
     toc = 0
     for f, im in enumerate(ims):
@@ -102,3 +93,4 @@ if __name__ == '__main__':
     toc /= cv2.getTickFrequency()
     fps = f / toc
     print('SiamMask Time: {:02.1f}s Speed: {:3.1f}fps (with visulization!)'.format(toc, fps))
+

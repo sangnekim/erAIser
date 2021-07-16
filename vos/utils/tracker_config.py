@@ -4,7 +4,7 @@
 # Written by Qiang Wang (wangqiang2015 at ia.ac.cn)
 # --------------------------------------------------------
 from __future__ import division
-from utils.anchors import Anchors
+from ..utils.anchors import Anchors
 
 
 class TrackerConfig(object):

@@ -12,19 +12,19 @@ from PIL import Image
 from os import makedirs
 from os.path import join, isdir, isfile
 
-from utils.log_helper import init_log, add_file_handler
-from utils.load_helper import load_pretrain
-from utils.bbox_helper import get_axis_aligned_bbox, cxy_wh_2_rect
-from utils.benchmark_helper import load_dataset, dataset_zoo
+from .utils.log_helper import init_log, add_file_handler
+from .utils.load_helper import load_pretrain
+from .utils.bbox_helper import get_axis_aligned_bbox, cxy_wh_2_rect
+from .utils.benchmark_helper import load_dataset, dataset_zoo
 
 import torch
 from torch.autograd import Variable
 import torch.nn.functional as F
 
-from utils.anchors import Anchors
-from utils.tracker_config import TrackerConfig
+from .utils.anchors import Anchors
+from .utils.tracker_config import TrackerConfig
 
-from utils.config_helper import load_config
+from .utils.config_helper import load_config
 """
 해당 모율 사용하려면 C++ 파일 사용해야함
 demo나 train시에 사용되지 않고 우리 task인 VOS랑은 무관해서 주석처리함
@@ -109,8 +109,10 @@ def get_subwindow_tracking(im, pos, model_sz, original_sz, avg_chans, out_mode='
         im_patch_original = im[int(context_ymin):int(context_ymax + 1), int(context_xmin):int(context_xmax + 1), :]
 
     if not np.array_equal(model_sz, original_sz):
+        im_patch_original = im_patch_original.astype('float32')
         im_patch = cv2.resize(im_patch_original, (model_sz, model_sz))
     else:
+        im_patch_original = im_patch_original.astype('float32')
         im_patch = im_patch_original
     # cv2.imshow('crop', im_patch)
     # cv2.waitKey(0)

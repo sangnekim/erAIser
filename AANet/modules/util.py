@@ -11,7 +11,7 @@ from torch import nn
 
 import torch.nn.functional as F
 import torch
-from sync_batchnorm import SynchronizedBatchNorm2d as BatchNorm2d
+from ..sync_batchnorm import SynchronizedBatchNorm2d as BatchNorm2d
 
 
 def region2gaussian(center, covar, spatial_size):
