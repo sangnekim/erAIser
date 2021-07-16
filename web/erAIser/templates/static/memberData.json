@@ -1,0 +1,67 @@
+{
+    "members" : [{
+        "id" : "1",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {   
+        "id" : "2",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {
+        "id" : "3",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {
+        "id" : "4",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {
+        "id" : "5",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {
+        "id" : "6",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {
+        "id" : "7",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {
+        "id" : "8",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    },
+    {
+        "id" : "9",
+        "poster" : "iu.jpg",
+        "name" : "권오현", 
+        "mail" : "dhgus9196@naver.com",
+        "github" : "https://github.com/5hyeonkwon"
+    }
+    ],
+     "Message" : "Here is our project members"
+}

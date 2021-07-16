@@ -17,7 +17,7 @@ from AANet.aa_inference import *
 def assign_siammask(args, cfg, device):     
     siammask = Custom(anchors=cfg['anchors'])
     if args.resume:
-        assert isfile(args.resume_annet), 'Please download {} first.'.format(args.resume_aanet)
+        assert isfile(args.resume_aanet), 'Please download {} first.'.format(args.resume_aanet)
         siammask = load_pretrain(siammask, args.resume)
     siammask.eval().to(device)
     

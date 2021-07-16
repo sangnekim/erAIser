@@ -9,11 +9,22 @@ class ImageTarget(models.Model):
 
 class Video(models.Model):
     title = models.CharField(max_length = 500)
-    videofile = models.FileField(upload_to = "video/", null = True)
+    videofile = models.FileField(upload_to = "./video", null = True)
 
     class Meta:
         verbose_name = 'video'
         verbose_name_plural = 'videos'
+
+    def __str__(self):
+        return self.title
+
+class Image(models.Model):
+    title = models.CharField(max_length = 500)
+    imagefile = models.FileField(upload_to = "./image", null = True)
+
+    class Meta:
+        verbose_name = 'image'
+        verbose_name_plural = 'images'
 
     def __str__(self):
         return self.title

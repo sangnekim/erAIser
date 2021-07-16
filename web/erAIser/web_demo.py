@@ -8,6 +8,8 @@ import json
 from os.path import exists
 import imageio
 
+sys.path.append("..")
+
 from vos.test import *
 from vos.vos_models.custom import Custom
 
@@ -40,13 +42,11 @@ def WebDemo(videos: dict, cfg: json, source=None):
     # Parse Image file and coordinates of bounding box
     ims = videos['ims']  # list object
     ims = [cv2.resize(im, (512,512)) for im in ims]  # list comprehension for resizing -> it can be change like 'map'
-    
-    # Web에서 (512,512)에 대한 boundign box를 받음
-    # 즉, views.py에서 video{... 'coordinates' : bbox} 로 받아야함.
-    videos['coordinates_origin'] = resize_bbox(videos['coordinates'],
+    videos['coordinates_origin'] = resize_bbox(videos['coordinates'], #_origin
                                         (512,512),
-                                        videos['ims'][0].shape[:2][::-1])
-    x, y, w, h = videos['coordinates']  # tuple or list object (512,512)
+                                        videos['ims'][0].shape[:2][::-1]
+                                        )
+    x, y, w, h = videos['coordinates']  # tuple or list object
     
 
     toc = 0
@@ -77,7 +77,6 @@ def WebDemo(videos: dict, cfg: json, source=None):
         if cfg['using_aanet']:
             # save information of object in origin video(512,512)
             AAInf.origin_video_pos_512.append(state['target_pos'].astype(int))
-            AAInf.origin_video_sz_512.append(state['target_sz'].astype(int))
             AAInf.origin_video_mask_512.append(mask.astype(int))
 
         inf.inference(im, mask)
@@ -92,7 +91,9 @@ def WebDemo(videos: dict, cfg: json, source=None):
     if cfg['using_aanet']:
         # check source image in AANet class
         inpainting_time={'toc':toc, 'fps':fps}
-        
+        print(type(AAInf.source_image))
+        print(imageio.core.util.Array)
+        print(type(imageio.core.util.Array))
         assert type(AAInf.source_image) is imageio.core.util.Array
         
         # generate new video
