@@ -131,7 +131,8 @@ python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json 
 The result video will be saved in `results`.
 
 ## References
-<p>Siammask 논문 등등</p>
+<p>Wang, Qiang, et al. "Fast online object tracking and segmentation: A unifying approach." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2019.</p>
+<p>Wang, Tianyu, et al. "Instance shadow detection." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2020.</p>
 
 ## Contributors
 <p>웹에 들어가는 members 그대로 사용하기</p>
