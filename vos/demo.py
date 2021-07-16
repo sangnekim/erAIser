@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     # Select ROI
     # GUI 문제 (X server)
-    """
+
     cv2.namedWindow("SiamMask", cv2.WND_PROP_FULLSCREEN)
     # cv2.setWindowProperty("SiamMask", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
     try:
@@ -46,10 +46,9 @@ if __name__ == '__main__':
         x, y, w, h = init_rect
     except:
         exit()
-    """
 
     # bounding box coordinates입력
-    x, y, w, h = 300, 110, 165, 250
+    # x, y, w, h = 300, 110, 165, 250
 
     toc = 0
     for f, im in enumerate(ims):
