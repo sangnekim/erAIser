@@ -104,6 +104,12 @@ cd ../../../
 
 ```bash
 wget http://www.robots.ox.ac.uk/~qwang/SiamMask_DAVIS.pth
+
+file_id="1IKZWpMeWXq-9osBqG7e7bTABumIZ32gB"
+file_name="checkpoint_e19.pth"
+curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${file_id}" > /dev/null
+code="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code}&id=${file_id}" -o ${file_name}
 ```
 
 4. Make `results` directory for saving result video
