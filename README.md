@@ -1,5 +1,5 @@
 # erAIser - Remove an object in video using AI
-<p align="center"><img width="539" alt="첫슬라이드" src="https://user-images.githubusercontent.com/40483474/125912276-4d5b8952-7973-4884-80ff-93f475fb3bb8.PNG">
+<p align="center"><img width="980" alt="첫슬라이드" src="https://user-images.githubusercontent.com/40483474/125912276-4d5b8952-7973-4884-80ff-93f475fb3bb8.PNG">
 </p>
 
 ## Contents
@@ -27,7 +27,7 @@ Let’s make your own video of a specific object being erased with ‘erAIser’
 
 ## Example
 <br>
-<p>원본 이미지 & 인페인팅 된 동영상 시연</p>
+![kwon2](https://user-images.githubusercontent.com/68596881/126003086-60641341-2845-4a26-94ac-de0132a46cd4.gif)
 <br>
 
 ## Demo screenshot
