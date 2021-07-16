@@ -112,19 +112,30 @@ curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${file_id}"
 code="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
 curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code}&id=${file_id}" -o ${file_name}
 ```
+4. Download the AANet model
+```bash
+cd AANet/
+mkdir checkpoints
+cd checkpoints/
 
-4. Make `results` directory for saving result video
+file_id="1DT6_SZHTkmuEWvCfs07F2mGLSkgxYplo"
+file_name="4dataset384_avd_08.pth"
+
+(다운로드가 잘 안됨..)
+```
+
+5. Make `results` directory for saving result video
 ```bash
 mkdir results
 ```
 `results` is defualt setting. You can change this.
 
-5-1. Run `inference.py` for erasing
+6-1. Run `inference.py` for erasing
 ```bash
 python3 inference.py --resume checkpoint_e19.pth --config config_inference.json
 ```
 
-5-2. Run `inference.py` for change people
+6-2. Run `inference.py` for change people
 ```bash
 python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json --using_aanet True
 ```
