@@ -33,12 +33,14 @@ class AAInference:
         self.origin_video_pos=[]
         self.origin_video_sz=[]
         self.origin_video_mask=[]
+        self.origin_video_bbox=[]
 
         self.origin_video_512=[]
         self.origin_video_pos_512=[]
         self.origin_video_sz_512=[]
         self.origin_video_mask_512=[]
-
+        self.origin_video_bbox_512=[]
+        
         self.origin_video_expand_bbox=[]
         self.vi_result=[]
         
