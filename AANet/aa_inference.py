@@ -133,6 +133,64 @@ class AAInference:
         self.driving_video_384=driving_video
         
         return source_image, driving_video
+    def resize_animation(self, source_animation, origin_video, bbox_384):
+        # source_animation : (384, 384)
+        result_shape=(512,512)
+        height,width= origin_video[0].shape[:2] 
+
+    #     mean_w=np.array( oirgin_sz[:, 0])
+    #     mean_h=np.array( oirgin_sz[:, 1])
+
+        if width>=height:
+            # 길이 가로인 동영상만..ㅠ..
+            if width*0.85>height:
+                width=int(width*0.85) # 덜 깎자. 
+
+            new_width=int(384*(height/width))
+            new_animation=[resize(pad_white(resize(f, (384, new_width))), (384,384)) 
+                           for f in  source_animation]
+
+            x,y,w,h=bbox_384
+            cx, cy=int(x+w/2), int(y+h/2)
+            new_w=int(w*(height/width))
+            new_x=int(cx-new_w/2)
+            new_bbox=[new_x, y, new_w, h]
+
+            return [new_animation, new_bbox]
+
+
+        else:
+            new_height=int(384*(width/height))
+            new_animation=[resize(pad_white(resize(f, (new_height, 384))), (384,384)) 
+                           for f in  source_animation]
+
+            x,y,w,h=bbox_384
+            cx, cy=int(x+w/2), int(y+h/2)
+            new_h=int(w*(width/height))
+            new_y=int(cy-new_h/2)
+            new_bbox=[x, new_y, w, new_h]
+
+            return [new_animation, new_bbox]
+        
+    def resize_target_size(self, target_sizes, origin_video_sz_512, source_animation):
+        ani_size=int(np.array(target_sizes)[:, 1].mean())
+        ob_size=int(np.array(origin_video_sz_512)[:, 1].mean())
+
+        new_size=int(384*(ob_size/ani_size))
+
+        new_target_sizes=[]
+        for sz in target_sizes:
+            new_sz=(sz*(ob_size/ ani_size)).astype(int)
+            new_target_sizes.append(new_sz)
+        
+        pad_const=384-new_size
+        new_animation=[]
+        for f in source_animation:
+            f_small=resize(f, (new_size, new_size))
+            f_384=pad_white(f_small, pad_const=pad_const)
+            new_animation.append(f_384)
+            
+        return new_target_sizes, new_animation
     
     def generate_animation(self, source_image, driving_video, ani_mode):
 
@@ -196,9 +254,11 @@ class AAInference:
 
                     video[f][cy-u-add_height: cy+u-add_height, cx-l+add_width:cx+l+add_width]=video_part
                 break # pad 관련 오류가 없을 시
-            except:
+            except Exception as e:
                 if pad==29:
+                    print(e)
                     raise NameError('object went off the video. adjust add_height or add_width')
+                
                 continue # plus 1 to pad
         
         return video
