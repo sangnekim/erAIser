@@ -82,7 +82,16 @@ if __name__ == '__main__':
     # x, y, w, h = 170, 110, 130, 290
     
     if args.using_aanet:
+        AAInf.origin_video_bbox_512=[x,y,w,h]
         AAInf.source_image=imageio.imread(args.aanet_source_image_path)
+        
+        cv2.namedWindow("AANet", cv2.WND_PROP_FULLSCREEN)
+        # cv2.setWindowProperty("AANet", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+        try:
+            AAInf.source_image_bbox = cv2.selectROI('AANet', AAInf.source_image, False, False)
+        except:
+            exit()
+        
         AAInf.origin_video_512=[(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)/255) for img in ims]
     
     toc = 0

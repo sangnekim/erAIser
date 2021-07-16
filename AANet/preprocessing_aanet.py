@@ -384,9 +384,9 @@ def pad_white(im, pad_const=False): # im : imageio.imread로 읽은...(0~1)
         lower=np.full((total_pad_length-total_pad_length//2, w, 3), 1)
         
         im_first=np.concatenate([upper, im_array, lower], axis=0)
-        if not pad_const2:
+        if not pad_const:
             return imageio.core.util.Image(im_first)
-        if pad_const2:
+        if pad_const:
             left=np.full((pad_const2,add_pad_length//2, 3),1)
             right=np.full((pad_const2,add_pad_length-add_pad_length//2, 3),1)
         
@@ -397,9 +397,9 @@ def pad_white(im, pad_const=False): # im : imageio.imread로 읽은...(0~1)
         
         im_first=np.concatenate([left, im_array, right], axis=1)
 
-        if not pad_const2:
+        if not pad_const:
             return imageio.core.util.Image(im_first)
-        if pad_const2:
+        if pad_const:
             upper=np.full((add_pad_length//2,pad_const2, 3),1)
             lower=np.full((add_pad_length-add_pad_length//2,pad_const2, 3),1)
             return imageio.core.util.Image(np.concatenate([upper, im_first, lower], axis=0))

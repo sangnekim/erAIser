@@ -35,7 +35,7 @@ def result(request):
                 break
 
         frame_list = frame_list[:-1]
-        videos = {'ims':frame_list, 'coordinates_origin':(300, 105, 180, 255)}
+        videos = {'ims':frame_list, 'coordinates':(300, 105, 180, 255)}
 
         config_path = 'erAIser/config_web_aa.json'
         config = json.load(open(config_path))
