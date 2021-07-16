@@ -155,6 +155,8 @@ The result video will be saved in `results`.
 ## References
 - Wang, Qiang, et al. "Fast online object tracking and segmentation: A unifying approach." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2019.
 - Wang, Tianyu, et al. "Instance shadow detection." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2020.
+- Dahun Kim, Sanghyun Woo, Joon-Young Lee, and In So Kweon. Deep video inpainting. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 5792–5801, 2019.
+- Siarohin, Aliaksandr and Woodford, et al. "Motion Representations for Articulated Animation." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2021.
 
 ## Contributors
 <p align="center"><img width="980" alt="members" src="https://user-images.githubusercontent.com/68596881/126005946-f87fcf3a-5cb6-4e00-b4cd-6795ca349c62.png">
