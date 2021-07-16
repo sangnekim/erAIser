@@ -1,5 +1,6 @@
 # erAIser - Remove an object in video using AI
-<p>ppt 첫 슬라이드 이미지 넣기</p>
+<p><img width="539" alt="첫슬라이드" src="https://user-images.githubusercontent.com/40483474/125912276-4d5b8952-7973-4884-80ff-93f475fb3bb8.PNG">
+</p>
 
 ## Contents
 1. [erAIser](#erAIser)
