@@ -120,8 +120,9 @@ cd checkpoints/
 
 file_id="1DT6_SZHTkmuEWvCfs07F2mGLSkgxYplo"
 file_name="4dataset384_avd_08.pth"
-
-(다운로드가 잘 안됨..)
+curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${file_id}" > /dev/null
+code="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code}&id=${file_id}" -o ${file_name}
 ```
 
 5. Make `results` directory for saving result video
