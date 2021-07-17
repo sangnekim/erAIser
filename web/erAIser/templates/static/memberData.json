@@ -1,67 +1,68 @@
 {
     "members" : [{
         "id" : "1",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "권오현.jpg",
+        "name" : "15기 권오현", 
+        "mail" : "내가 사라져볼게 얍 !",
+        "tmp" : ""
     },
     {   
         "id" : "2",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "김민경.jpg",
+        "name" : "14기 김민경", 
+        "mail" : "지우개 장인들 모두 고생하셨습니다｡^‿^｡",
+        "tmp" : ""
     },
     {
         "id" : "3",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "김상현.jpg",
+        "name" : "14기 김상현", 
+        "mail" : "코로나 지우개는 없나요?",
+        "tmp" : ""
     },
     {
         "id" : "4",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "김태한.jpg",
+        "name" : "12기 김태한", 
+        "mail" : "뚜샤~~",
+        "tmp" : ""
     },
     {
         "id" : "5",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "박진수.jpg",
+        "name" : "15기 박진수", 
+        "mail" : "디즈니가 나를 불러줄까??",
+        "tmp" : ""
     },
     {
         "id" : "6",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "서아라.jpg",
+        "name" : "14기 서아라", 
+        "mail" : "끝이다>ㅁ<!!! erAIser",
+        "tmp" : "\" 팀원분들 모두 수고하셨습니다~!!~!! \""
     },
     {
         "id" : "7",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "오주영.jpg",
+        "name" : "15기 오주영", 
+        "mail" : "지우개는 사드세요... 제발",
+        "tmp" : ""
     },
     {
         "id" : "8",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "이유진.png",
+        "name" : "12기 이유진", 
+        "mail" : "세상에서 가장 어려운 지우개 만들기였습니다.",
+        "tmp" : ""
     },
     {
         "id" : "9",
-        "poster" : "iu.jpg",
-        "name" : "권오현", 
-        "mail" : "dhgus9196@naver.com",
-        "github" : "https://github.com/5hyeonkwon"
+        "poster" : "장혜림.jpg",
+        "name" : "14기 장혜림", 
+        "mail" : "DIY, eraser...",
+        "tmp" : ""
     }
     ],
-     "Message" : "Here is our project members"
+     "Message" : "Here is our project members",
+     "tmp" : ""
 }

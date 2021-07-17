@@ -8,8 +8,8 @@
     "membermessage":"Here is our project members.",
     "email": "youremailhere@gmail.com",
     "phone": "555-555-5555",
-    "github":"https://github.com/nordicgiant2/react-nice-resume",
-    "project":"https://github.com/nordicgiant2/react-nice-resume",
+    "github":"https://github.com/shkim960520/tobigs-image-conference",
+    "project":"https://www.notion.so/Tobigs-1415-231b6c6ff5d547399ace57aa48157024",
     "address":{
       "street":"이것저것 적어야지..",
       "city":"이것저것 적어야지..",
@@ -21,18 +21,8 @@
     "social":[
       {
         "name":"facebook",
-        "url":"https://facebook.com",
+        "url":"https://www.facebook.com/bigdatamarket/",
         "className":"fa fa-facebook"
-      },
-      {
-        "name":"twitter",
-        "url":"http://twitter.com",
-        "className":"fa fa-twitter"
-      },
-      {
-        "name":"linkedin",
-        "url":"https://www.linkedin.com",
-        "className":"fa fa-linkedin"
       },
       {
         "name":"instagram",
@@ -110,63 +100,51 @@
   "portfolio":{
     "projects": [
       {
-        "title":"Canadian Wanderlust",
-        "category":"My Travel Blog for my post-university travels",
-        "image":"01.jpg",
+        "title":"Walking Man With VI",
+        "category":"VI",
+        "image":"vi_oh.gif",
         "url":"https://www.naver.com"
       },
       {
-        "title":"Fury Fighting Gear",
-        "category":"(offline now) A fighting gear company I started",
-        "image":"02.jpg",
+        "title":"Walking Man change With AA",
+        "category":"AA",
+        "image":"aa_monster.gif",
         "url":"http://www.naver.com"
       },
       {
-        "title":"Original Thai Food",
-        "category":"Website I built for a restaurant I like in Thailand",
-        "image":"03.jpg",
+        "title":"Mallard Fly",
+        "category":"VI",
+        "image":"mallard_fly.gif",
         "url":"http://www.naver.com"
       },
       {
-        "title":"Resume Website",
-        "category":"A React based resume website template",
-        "image":"04.jpg",
+        "title":"BMX Bumps",
+        "category":"VI",
+        "image":"bmx_bumps.gif",
         "url":"http://www.naver.com"
       },
       {
-        "title":"Smirkspace",
-        "category":"(MVP Only) A React and Meteor based chat University project.",
-        "image":"05.jpg",
+        "title":"BMX Tree",
+        "category":"VI",
+        "image":"bmx-trees.gif",
         "url":"http://www.naver.com"
       },
       {
-        "title":"Canadian Wanderlust",
-        "category":"My Travel Blog for my post-university travels",
-        "image":"06.jpg",
-        "url":"https://www.naver.com"
-      },
-      {
-        "title":"Fury Fighting Gear",
-        "category":"(offline now) A fighting gear company I started",
-        "image":"01.jpg",
+        "title":"Tennis LeeDongHwi",
+        "category":"VI",
+        "image":"Tennis_Dong.gif",
         "url":"http://www.naver.com"
       },
       {
-        "title":"Original Thai Food",
-        "category":"Website I built for a restaurant I like in Thailand",
-        "image":"02.jpg",
+        "title":"Walking Man",
+        "category":"VI",
+        "image":"Walking_Jung.gif",
         "url":"http://www.naver.com"
       },
       {
-        "title":"Original Thai Food",
-        "category":"Website I built for a restaurant I like in Thailand",
-        "image":"03.jpg",
-        "url":"http://www.naver.com"
-      },
-      {
-        "title":"Resume Website",
-        "category":"A React based resume website template",
-        "image":"04.jpg",
+        "title":"Walking Woman",
+        "category":"VI",
+        "image":"walking_woman.gif",
         "url":"http://www.naver.com"
       }
     ]

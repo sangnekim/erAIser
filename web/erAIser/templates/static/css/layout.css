@@ -186,7 +186,7 @@ ul#nav li.current a { color: #fe6928; }
 /* ------------------------------------------------------------------ */
 
 #about {
-   background: #000524;
+   background: rgb(123, 116, 123);
    padding-top: 96px;
    padding-bottom: 66px;
    overflow: hidden;
@@ -262,6 +262,7 @@ ul#nav li.current a { color: #fe6928; }
 
 
 .education, .work {
+   margin-top: -50px;
    margin-bottom: 48px;
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
@@ -314,33 +315,54 @@ ul#nav li.current a { color: #fe6928; }
    max-width: 512px;
    max-height:512px;
    cursor: crosshair;
+   font : 'opensans-bold'
  }
-#resume .input-file-button{
-   padding: 6px 25px;
+ #resume .input-file-button1{
+   padding: 12px 12px;
+   width : 50 ;
    background-color:#FF6600;
    border-radius: 4px;
    color: white;
    cursor: pointer;
  } 
-#resume .getCapture{
+ #resume .input-file-button2{
+   padding: 8px 8px;
+   width : 50 ;
+   background-color:#FF6600;
    border-radius: 4px;
+   color: white;
+   cursor: pointer;
+ } 
+ #resume .post{
+   display: flex;
+   width : 135px;
+   padding-left: 50px;
+
+   border-radius: 4px;
+   justify-content: space-between;
+
+ } 
+#resume .getCapture{
    border-radius: 4px;
    background-color:#FF6600;
    color: white;
    cursor: pointer;
-   padding: 6px 25px;
+   padding: 6px;
 
 }
 #resume .sub_columns{
    width : inherit;
    height : inherit;
-   
 }
  #resume .buttons{
       display: flex;
       justify-content: space-between;
  
     } 
+#resume .hiddenhidden{
+   display: flex;
+   flex-direction: row;
+}
 #resume #canvas_child1 {
 
    width : 512px ;
@@ -390,20 +412,26 @@ ul#nav li.current a { color: #fe6928; }
 #resume2 .header-col { padding-top: 9px; }
 #resume2 .main-col { padding-right: 10%; }
 
-
 .education, .work {
+   margin-top: -50px;
    margin-bottom: 48px;
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
    width : 100%;
    height : 100%;
 }
+
+
 #resume2 .item{
    width : inherit;
    height : inherit;
    display: block;
    
 
+}
+#resume2 .hiddenhidden{
+   display: flex;
+   flex-direction: row;
 }
 #resume2 .columns{
    float :left;
@@ -462,22 +490,39 @@ ul#nav li.current a { color: #fe6928; }
    max-height:512px;
    cursor: crosshair;
  }
-#resume2 .input-file-button{
-   padding: 6px 25px;
+
+#resume2 .input-file-button1{
+   padding: 12px 12px;
+   width : 50 ;
+   background-color:#FF6600;
+   border-radius: 4px;
+   color: white;
+   cursor: pointer;
+ } 
+ #resume2 .input-file-button2{
+   padding: 8px 8px;
+   width : 50 ;
    background-color:#FF6600;
    border-radius: 4px;
    color: white;
    cursor: pointer;
  } 
 #resume2 .getCapture{
-   border-radius: 4px;
+   padding: 6px;
    border-radius: 4px;
    background-color:#FF6600;
    color: white;
    cursor: pointer;
-   padding: 6px 25px;
-
 }
+#resume2 .post{
+   display: flex;
+   width : 135px;
+   padding-left: 50px;
+
+   border-radius: 4px;
+   justify-content: space-between;
+
+ } 
 #resume2 .sub_columns{
    width : inherit;
    height : inherit;
@@ -492,7 +537,6 @@ ul#nav li.current a { color: #fe6928; }
 
    width : 512px ;
    height : 512px ;
- 
    position: relative;
  }
  #resume2 #canvas_child2 {
@@ -658,7 +702,7 @@ ul#nav li.current a { color: #fe6928; }
 /* ------------------------------------------------------------------ */
 
 #portfolio {
-   background: #ebeeee;
+   background:rgba(123, 116, 123, 0.85);
    padding-top: 90px;
    padding-bottom: 60px;
 }
@@ -1036,14 +1080,15 @@ call-to-action .button {
 
 #member {
 
-   background: #9c9fb9;
+   background: rgb(241, 189, 159);
    padding-top: 90px;
    padding-bottom: 60px;
 }
 
 #member p.lead {
-   font: 40px/36px 'opensans-light', sans-serif;
+   font: 30px/24px 'opensans-semibold', sans-serif;
    padding-right: 3%;
+   text-align: center;
    position: relative;
    margin-left: 30px;
    color :#ffffff;
@@ -1062,22 +1107,26 @@ call-to-action .button {
    margin-bottom: 30px; }
 
 #member .profileList {
-   margin-left: 30px;
+
    padding-top : 100px;
    width : 100%;
    height : 100%;
    display: flex;
+
    flex-direction: row;
    color :#ffffff;
    flex-wrap: wrap;
-   clear: both;
-   justify-content: space-between;
-   float:left;
+   
+   justify-content: space-around;
    
 }
 
 #member .profile_data{
+   
    display: inline;
+   text-align: center;
+   line-height: 3px;
+   
 
 
 }
@@ -1090,6 +1139,13 @@ call-to-action .button {
    object-fit: cover;
    margin-bottom: 40px;
    
+}
+#member .profile_name{
+   font: 17px 'BMHANNAPro';
+}
+
+#member .profile_mail{
+   font: 18px/2em 'BMHANNAPro';
 }
 
 #message-warning, #message-success {
