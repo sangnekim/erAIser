@@ -1,4 +1,6 @@
 # erAIser - Remove an object in video using AI
+[![file](https://img.shields.io/badge/presentation-file-orange)](https://drive.google.com/file/d/176qC2l3OYg_Uodj144VQRZ2MIT7Kobhu/view?usp=sharing)
+[![video](https://img.shields.io/badge/presentation-video-orange)](https://www.youtube.com/watch?v=ebZxKIbMvqo)
 <p align="center"><img width="980" alt="첫슬라이드" src="https://user-images.githubusercontent.com/40483474/125912276-4d5b8952-7973-4884-80ff-93f475fb3bb8.PNG">
 </p>
 
@@ -45,6 +47,9 @@ Let’s make your own video of a specific object being erased with ‘erAIser’
 </p>
 
 <br>
+You can look around our web at the following link. For your information, the model is currently not working on the web due to the GPU environment.
+
+[web link](https://eraiser-tobigs.netlify.app/).
 
 ## Usage
 
