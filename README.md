@@ -18,12 +18,12 @@
 <br>
 <br>
 Most of video inpainting model need segmentation mask of objects. But it is hard to get in normal way. For your convenience, we used a deep learning model that allows users to easily obtain segmentation masks. We combined this video object segmentation model with the video inpainting model to increase usability. Additionally, we use AANet to change object to other object in object erased video.
-
+<br>
 <br>
 Our team consists of nine members of ‘Tobigs’ who are interested in computer vision task.
-
 <br>
-All you have to do is draw the object bounding box that you want to erase in the first frame.Then 'erAIser' will make a video of the object being erased. 
+<br>
+All you have to do is draw the object bounding box that you want to erase in the first frame. Then 'erAIser' will make a video of the object being erased. 
 Let’s make your own video of a specific object being erased with ‘erAIser’!
 
 <br>
