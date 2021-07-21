@@ -159,5 +159,21 @@ The result video will be saved in `results`.
 - Siarohin, Aliaksandr and Woodford, et al. "Motion Representations for Articulated Animation." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2021.
 
 ## Contributors
-<p align="center"><img width="980" alt="members" src="https://user-images.githubusercontent.com/68596881/126005946-f87fcf3a-5cb6-4e00-b4cd-6795ca349c62.png">
-</p>
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/han811"><img src="https://user-images.githubusercontent.com/68596881/126450991-076c4c5c-a960-4372-a08c-0460fa9cbf11.png" width="150" height="150"><br /><sub><b>김태한 <br> Inpainting</b></sub></td>
+    <td align="center"><a href="https://github.com/YoojLee"><img src="https://user-images.githubusercontent.com/68596881/126451113-e60a8c58-3fa0-4d7f-a42b-df3c3123a0d5.png" width="150" height="150"><br /><sub><b>이유진 <br> Inpainting, Web</b></sub></td>
+    <td align="center"><a href="https://github.com/shkim960520"><img src="https://user-images.githubusercontent.com/68596881/126451157-a8aba5b6-71b4-400f-8b80-01b8a0d1345a.png" width="150" height="150"><br /><sub><b>김상현 <br> Video Object Segmentation, Web</b></sub></td>
+    <td align="center"><a href="https://github.com/mink7878"><img src="https://user-images.githubusercontent.com/68596881/126451217-b2ef99bc-edfd-479c-bf06-81a745ea37e7.png" width="150" height="150"><br /><sub><b>김민경 <br> Video Object Segmentation</b></sub></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/araseo"><img src="https://user-images.githubusercontent.com/68596881/126451283-7b86921c-219e-4f08-99bd-56a31cef96d9.png" width="150" height="150"><br /><sub><b>서아라 <br> Inpainting</b></sub></td>
+    <td align="center"><a href="https://github.com/joy5075"><img src="https://user-images.githubusercontent.com/68596881/126451367-a16223af-f729-47e0-bdd7-f4b2bc67b743.png" width="150" height="150"><br /><sub><b>장혜림 <br> Video Object Segmentation</b></sub></td>
+    <td align="center"><a href="https://github.com/5hyeonkwon"><img src="https://user-images.githubusercontent.com/68596881/126451450-e7f2f302-73ab-47fe-be6e-77fe29ad7a1e.png" width="150" height="150"><br /><sub><b>권오현 <br> Video Object Segmentation, Web</b></sub></td>
+    <td align="center"><a href="https://github.com/sjinu96"><img src="https://user-images.githubusercontent.com/68596881/126451520-b89d3ce5-0286-443a-846c-547b70e0bd28.png" width="150" height="150"><br /><sub><b>박진수 <br> Inpainting, AAnet</b></sub></td>
+    <td align="center"><a href="https://github.com/Jy0923"><img src="https://user-images.githubusercontent.com/68596881/126451575-73e3f251-05cc-44bc-a34f-9da0dbb41b2d.png" width="150" height="150"><br /><sub><b>오주영 <br> Inpainting, Web</b></sub></td>
+  </tr>
+</table>
