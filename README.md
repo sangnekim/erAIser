@@ -16,11 +16,14 @@
 <br>
 ‘erAIser’ is a service that provides a specific object erased video by using video object segmentation and video inpainting methods.
 <br>
+<br>
+Most of video inpainting model need segmentation mask of objects. But it is hard to get in normal way. For your convenience, we used a deep learning model that allows users to easily obtain segmentation masks. We combined this video object segmentation model with the video inpainting model to increase usability. Additionally, we use AANet to change object to other object in object erased video.
 
-Most of video inpainting model need segmentation mask of objects. But it is hard to get in normal way. For your convenience, we used a deep learning model that allows users to easily obtain segmentation masks. Also, we combined this video object segmentation model with the video inpainting models to increase usability.
-
+<br>
 Our team consists of nine members of ‘Tobigs’ who are interested in computer vision task.
 
+<br>
+All you have to do is draw the object bounding box that you want to erase in the first frame.Then 'erAIser' will make a video of the object being erased. 
 Let’s make your own video of a specific object being erased with ‘erAIser’!
 
 <br>
@@ -44,11 +47,6 @@ Let’s make your own video of a specific object being erased with ‘erAIser’
 <br>
 
 ## Usage
-### Caution
-
-- This `root` directory is for 'integrated demo(Siammask + VINet)'.
-- If you want to use 'video object segmentation(Siammask)' model only, you should go `vos` directory and follow `readme.md`
-- If you want to use 'video inpainting(VINet)' model only, you should go `vi` directory and follow `readme.md`
 
 ### Environment Setup
 This code was tested in the following environments
@@ -146,7 +144,7 @@ mkdir results
 python3 inference.py --resume checkpoint_e19.pth --config config_inference.json
 ```
 
-6-2. Run `inference.py` for change people
+6-2. Run `inference.py` for change object to other (ex. person, animation character)
 ```bash
 python3 inference.py --resume SiamMask_DAVIS.pth --config config_inference.json --using_aanet True
 ```
