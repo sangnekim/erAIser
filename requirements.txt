@@ -8,6 +8,7 @@ scipy
 cmake
 ninja
 moviepy
+Pillow
 pyqt5
 pyqt5-tools
 imageio
@@ -20,7 +21,6 @@ numba==0.39.0
 h5py==2.8.0
 tensorboardX==1.6
 torch==1.8.1
-Pillow==8.2.0
 PyYAML==5.1
 scikit-image==0.14.2
 scikit-learn==0.19.2
